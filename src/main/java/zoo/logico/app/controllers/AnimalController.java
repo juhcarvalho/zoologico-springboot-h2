@@ -1,8 +1,6 @@
 package zoo.logico.app.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import zoo.logico.app.model.Animal;
 import zoo.logico.app.services.AnimalService;
 
@@ -18,7 +16,12 @@ public class AnimalController {
     }
 
     @GetMapping
-    public List<Animal> ASDas(){
+    public List<Animal> listarTodos(){
         return service.getAll();
+    }
+
+    @PostMapping
+    public Animal cadastrar(@RequestBody Animal animal) {
+        return service.create(animal);
     }
 }
