@@ -1,19 +1,16 @@
-package zoo.logico.app.model;
+package zoo.logico.app.domain.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
+@Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 public class Animal {
 
     @Id
@@ -22,7 +19,8 @@ public class Animal {
 
     private String nome;
 
-    private Double peso;
+    private int idade;
 
-    private Double altura;
+    private Boolean nascidoEmCativeiro;
+
 }

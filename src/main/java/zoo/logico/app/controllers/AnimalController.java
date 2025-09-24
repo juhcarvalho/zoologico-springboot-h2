@@ -1,7 +1,10 @@
 package zoo.logico.app.controllers;
 
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
-import zoo.logico.app.model.Animal;
+import zoo.logico.app.domain.dto.AnimalDto;
+import zoo.logico.app.domain.model.Animal;
 import zoo.logico.app.services.AnimalService;
 
 import java.util.List;
@@ -20,8 +23,25 @@ public class AnimalController {
         return service.getAll();
     }
 
+    @GetMapping("/{id}")
+    public Animal obterPorId(@PathVariable Long id) {
+        return service.getById(id);
+    }
+
     @PostMapping
-    public Animal cadastrar(@RequestBody Animal animal) {
+    public Animal cadastrar(@Valid @RequestBody AnimalDto animal){
         return service.create(animal);
     }
+
+    @PutMapping("/{id}")
+    public Animal atualizar(@PathVariable Long id, @Valid @RequestBody AnimalDto animal) throws EntityNotFoundException {
+        return service.update(id, animal);
+    }
+
+    @DeleteMapping("/{id}")
+    public void excluir(@PathVariable Long id) throws EntityNotFoundException {
+        service.delete(id);
+    }
+
+
 }
