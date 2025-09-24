@@ -1,6 +1,6 @@
 ## Zoológico Madagascar
 ___
-Este projeto é uma API desenvolvida com Spring Boot, utilizando Java 17, banco de dados H2 em memória, e suporte a validações com Lombok e JPA.
+Este projeto é uma API REST desenvolvida com Spring Boot, utilizando Java 17, banco de dados H2 em memória, e suporte a validações com Lombok e JPA.
 ___
 
 O Zoológico Madagascar solicitou um sistema para realizar o controle de todos os animais 
@@ -16,6 +16,7 @@ ___
   - Cadastrar ``POST /animais``
   - Atualizar ``PUT /animais/{id}``
   - Excluir ``DELETE /animais/{id}`` 
+  - Listar todos nascidos em cativeiro ``GET /animais/nascidoEmCativeiro``
 
 ### Adicionais:
 Classe **GlobalExceptionHandler** possui a anotação **@ControllerAdvice** e está 

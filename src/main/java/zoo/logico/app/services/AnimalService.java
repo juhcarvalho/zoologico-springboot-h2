@@ -57,4 +57,7 @@ public class AnimalService {
         repository.deleteById(id);
     }
 
+    public List<Animal> findByNascidoEmCativeiro(){
+        return repository.findByNascidoEmCativeiro(true);
+    }
 }

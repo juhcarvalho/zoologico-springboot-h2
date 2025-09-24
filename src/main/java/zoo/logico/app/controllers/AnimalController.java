@@ -43,5 +43,11 @@ public class AnimalController {
         service.delete(id);
     }
 
+    @GetMapping("/nascidoEmCativeiro")
+    public List<Animal> listarNascidoEmCativeiro() {
+        return service.findByNascidoEmCativeiro();
+    }
+
+
 
 }
